@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F3F0E9">
+  <meta name="description" content="Explore a conceptual residence from Casa Norte, a fictional international real estate brand by BEMA Studios.">
+  <title>Residence — Casa Norte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Property-page-specific styling; move to styles.css during final polish. */
+    .property-page .site-header { position: relative; background: var(--ivory); color: var(--obsidian); }
+    .property-page .header-inner { border-bottom: 1px solid var(--stone); }
+    .property-page .mobile-nav { background: var(--ivory); color: var(--obsidian); }
+    .property-page .mobile-nav a { border-bottom-color: var(--stone); }
+    .property-page .property-intro { padding: clamp(65px, 9vw, 135px) 0 50px; }
+    .property-page .property-kicker { color: var(--bronze); font-size: 11px; letter-spacing: .15em; text-transform: uppercase; }
+    .property-page .property-heading { font-family: var(--serif); font-size: clamp(65px, 10vw, 150px); line-height: .95; font-weight: 400; letter-spacing: -.035em; margin: 25px 0; }
+    .property-page .property-intro-bottom { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: baseline; }
+    .property-page .property-location-detail { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+    .property-page .property-price-detail { font-size: clamp(18px, 2vw, 25px); }
+    .property-page .property-hero-photo { height: clamp(420px, 65vw, 820px); background: var(--stone); }
+    .property-page .property-hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .property-page .property-description-layout { display: grid; gap: 45px; }
+    .property-page .property-description-layout h2 { font-family: var(--serif); font-size: clamp(50px, 7vw, 100px); line-height: 1; font-weight: 400; margin: 0; }
+    .property-page .property-description-layout p { max-width: 610px; font-size: 16px; line-height: 1.95; color: var(--graphite); }
+    .property-page .property-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 45px; }
+    .property-page .property-fact { border-top: 1px solid var(--stone); padding-top: 16px; }
+    .property-page .property-fact strong { display: block; font-family: var(--serif); font-size: clamp(34px, 4vw, 56px); font-weight: 400; }
+    .property-page .property-fact span { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--graphite); }
+    .property-page .property-gallery { display: grid; gap: 16px; }
+    .property-page .property-gallery figure { margin: 0; background: var(--stone); aspect-ratio: 4 / 3; overflow: hidden; }
+    .property-page .property-gallery img { width: 100%; height: 100%; object-fit: cover; }
+    .property-page .property-gallery figcaption { padding: 10px 0; font-size: 11px; color: var(--graphite); }
+    .property-page .property-return { display: inline-flex; gap: 14px; align-items: center; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid currentColor; padding-bottom: 8px; }
+    .property-page .property-next { text-align: center; }
+    .property-page .property-next h2 { font-family: var(--serif); font-size: clamp(48px, 7vw, 100px); font-weight: 400; line-height: 1; margin: 15px 0 35px; }
+    .property-page .property-error { padding: 100px 0; }
+    @media (min-width: 750px) {
+      .property-page .property-description-layout { grid-template-columns: 1fr 1fr; gap: 80px; }
+      .property-page .property-gallery { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .property-page .property-gallery figure:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 8; }
+      .property-page .property-facts { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+  <script src="js/script.js" defer></script>
+  <script src="js/properties.js" defer></script>
+</head>
+<body class="property-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html" aria-label="Casa Norte homepage">CASA NORTE</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html#about" data-i18n="navAbout">About</a>
+        <a href="index.html#residences" data-i18n="navResidences">Residences</a>
+        <a href="index.html#services" data-i18n="navServices">Services</a>
+        <a href="index.html#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language to Spanish">EN / ES</button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="index.html#about" data-i18n="navAbout">About</a>
+      <a href="index.html#residences" data-i18n="navResidences">Residences</a>
+      <a href="index.html#services" data-i18n="navServices">Services</a>
+      <a href="index.html#contact" data-i18n="navContact">Contact</a>
+    </nav>
+  </header>
+  <main id="main-content">
+    <div id="property-content" aria-live="polite"></div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top"><a class="footer-brand" href="index.html">CASA NORTE</a><a class="back-to-top" href="#main-content" data-i18n="backToTop">Back to top</a></div>
+      <div class="footer-bottom"><p>© 2026 CASA NORTE</p><p data-i18n="footerConcept">A conceptual real estate experience by BEMA Studios.</p><div class="footer-links"><a href="index.html#residences" data-i18n="navResidences">Residences</a><a href="index.html#contact" data-i18n="navContact">Contact</a></div></div>
+      <p class="footer-disclaimer" data-i18n="footerDisclaimer">Casa Norte is a fictional brand created for design portfolio purposes. Properties, prices and testimonials are illustrative.</p>
+    </div>
+  </footer>
+</body>
+</html>
